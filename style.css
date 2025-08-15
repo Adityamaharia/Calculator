@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(0, 0%, 100%);
+}
+
+#calculator {
+  max-width: 500px;
+  width: 100%;
+  background-color: hsl(0, 0%, 79%);
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+#display {
+  width: 100%;
+  height: 100px;
+  background-color: hsl(0, 0%, 15%);
+  color: white;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  text-align: right;
+  padding: 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+#display::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 40px;
+}
+
+#equalBtn {
+  border-radius: 20px;
+  grid-column: span 3;
+  width: auto;
+  background-color: rgb(45, 45, 204);
+}
+
+button {
+  width: min(100px, 100%);
+  height: min(100px, 20vw);
+  border: none;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+  background-color: hsl(0, 0%, 40%);
+  border: solid rgb(182, 179, 179);
+  border-width: 5px;
+}
+
+button:active {
+  background-color: hsl(0, 0%, 30%);
+}
+
+@media (max-width: 500px) {
+  #calculator {
+    padding: 10px;
+  }
+
+  #display {
+    font-size: clamp(1.2rem, 8vw, 2rem);
+    padding: 10px;
+  }
+
+  button {
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    transition: background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  }
+
+  button:not(:active) {
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    transition: background-color 0s, border 0s;
+  }
+}
