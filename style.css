@@ -3,16 +3,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   background-color: hsl(0, 0%, 100%);
 }
 
 #calculator {
-  max-width: 500px;
-  width: 100%;
+  font-family: Arial, sans-serif;
+  max-width: 570px;
+  padding: 20px 20px 10px;
   background-color: hsl(0, 0%, 79%);
   border-radius: 20px;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 #display {
@@ -26,7 +28,6 @@ body {
   box-sizing: border-box;
   border: none;
   border-radius: 20px 20px 0 0;
-  overflow: hidden;
 }
 
 #display::placeholder {
@@ -35,21 +36,21 @@ body {
 
 #keys {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(60px, 1fr));
   gap: 10px;
-  padding: 40px;
+  padding: 20px;
 }
 
 #equalBtn {
   border-radius: 20px;
   grid-column: span 3;
-  width: auto;
+  width: 100%;
   background-color: rgb(45, 45, 204);
 }
 
 button {
-  width: min(100px, 100%);
-  height: min(100px, 20vw);
+  width: min(80px, 10vw);
+  height: min(80px, 10vw);
   border: none;
   border-radius: 50%;
   background-color: hsl(0, 0%, 100%);
@@ -69,17 +70,27 @@ button:active {
   background-color: hsl(0, 0%, 30%);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   #calculator {
+    max-width: 70%;
+    padding: 10px;
+  }
+
+  #keys {
+    grid-template-columns: repeat(4, 1fr); /* buttons auto-fit */
+    gap: 8px;
     padding: 10px;
   }
 
   #display {
+    width: 100%;
     font-size: clamp(1.2rem, 8vw, 2rem);
     padding: 10px;
   }
 
   button {
+    margin: auto;
+    font-size: 5vw;
     border: none;
     background-color: hsl(0, 0%, 100%);
     transition: background-color 0.2s ease;

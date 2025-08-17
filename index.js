@@ -7,7 +7,7 @@ function appendToDisplay(value) {
 
 // Clear the display (reset to "0")
 function clearDisplay() {
-  display.value = "0";
+  display.value = "";
 }
 
 // Add a decimal point only if the current number chunk doesn’t already have one
@@ -30,13 +30,13 @@ function addDot(dot) {
 
 // Calculate and display the result
 function calculateResult() {
-  if (display.value === "" || display.value === "Error") {
+  if (display.value === "" || display.value === "error") {
     display.value = "";
   } else {
     try {
       display.value = eval(display.value);
     } catch (error) {
-      display.value = "Error";
+      display.value = "error";
     }
   }
 }
@@ -44,9 +44,9 @@ function calculateResult() {
 // Calculate square root of the displayed number
 function squareRoot() {
   let num = display.value;
-  if (num === "error") {
+  if (num === "error" || num === "") {
     display.value = "";
-  } else if (!num === "" || /[\+\-\*\/]$/.test(display.value) || isNaN(num)) {
+  } else if (/[\+\-\*\/]$/.test(num) || isNaN(num)) {
     display.value = "error";
   } else {
     display.value = Math.sqrt(num);
@@ -56,9 +56,9 @@ function squareRoot() {
 // Convert number to percentage
 function percentage() {
   let num = display.value;
-  if (num === "error") {
+  if (num === "error" || num === "") {
     display.value = "";
-  } else if (!num === "" || /[\+\-\*\/]$/.test(display.value) || isNaN(num)) {
+  } else if (/[\+\-\*\/]$/.test(num) || isNaN(num)) {
     display.value = "error";
   } else {
     display.value = num / 100;
@@ -83,9 +83,9 @@ function changeSign() {
 // Calculate the square of the displayed number
 function square() {
   let num = display.value;
-  if (num === "error") {
+  if (num === "error" || num === "") {
     display.value = "";
-  } else if (!num === "" || /[\+\-\*\/]$/.test(display.value) || isNaN(num)) {
+  } else if (/[\+\-\*\/]$/.test(num) || isNaN(num)) {
     display.value = "error";
   } else {
     display.value = Math.pow(num, 2);
